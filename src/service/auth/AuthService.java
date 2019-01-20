@@ -115,4 +115,43 @@ public class AuthService {
         }
         return false;
     }
+    
+    public boolean signin(JPanel logPanel) throws IllegalArgumentException, IllegalAccessException{
+        Component[] components = logPanel.getComponents();
+        User u = new User();
+        Field[] fields = u.getClass().getDeclaredFields();
+        for (int i = 0; i < components.length; i++) {
+            if (!components[i].getClass().equals(JTextField.class)) {
+                continue;
+            }
+
+            for (int j = 0; j < fields.length; j++) {
+                if (!components[i].getName().equals(fields[j].getName())) {
+                    continue;
+                }
+                fields[j].setAccessible(true);
+                fields[j].set(u, ((JTextField) components[i]).getText());
+                fields[j].setAccessible(false);
+                break;
+            }
+        }
+        
+        BufferedReader br = null;
+        
+        try {
+            br = new BufferedReader(new FileReader("users.txt"));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AuthService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String line;
+        try {
+            while((line = br.readLine()) != null){
+                if(line.contains(u.getPassword()) && line.contains(u.getLogin())) return true;
+            }   
+        } catch (IOException ex) {
+            Logger.getLogger(AuthService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return false;
+    }
 }
