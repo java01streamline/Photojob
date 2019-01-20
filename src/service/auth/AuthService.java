@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 
 public class AuthService {
 
-    public void saveUser(JPanel regPanel) throws IllegalArgumentException, IllegalAccessException {
+    public boolean saveUser(JPanel regPanel) throws IllegalArgumentException, IllegalAccessException {
         Component[] components = regPanel.getComponents();
         User u = new User();
         Field[] fields = u.getClass().getDeclaredFields();
@@ -38,7 +38,7 @@ public class AuthService {
             }
         }
         
-        if(isUserExists(u)) return;
+        if(isUserExists(u)) return false;
         
         u.setId(UUID.randomUUID().toString());
 
@@ -83,6 +83,7 @@ public class AuthService {
         } catch (IOException ex) {
             Logger.getLogger(AuthService.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return true;
         
     }
 
