@@ -1,9 +1,16 @@
 
 package frames;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import service.auth.AuthService;
+
 public class Authorization extends javax.swing.JFrame {
 
+    private AuthService authService;
+    
     public Authorization() {
+        authService = new AuthService();
         initComponents();
     }
 
@@ -31,6 +38,11 @@ public class Authorization extends javax.swing.JFrame {
         jTextField2.setName("password"); // NOI18N
 
         jButton1.setText("Enter");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Registration");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +115,18 @@ public class Authorization extends javax.swing.JFrame {
         this.setVisible(false);
         new Registration().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            if(!authService.signin(jPanel1)) return;
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(Authorization.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Authorization.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+        new Main().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
