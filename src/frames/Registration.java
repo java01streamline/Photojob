@@ -1,4 +1,3 @@
-
 package frames;
 
 import java.util.logging.Level;
@@ -8,7 +7,7 @@ import service.auth.AuthService;
 public class Registration extends javax.swing.JFrame {
 
     private AuthService authService;
-    
+
     public Registration() {
         authService = new AuthService();
         initComponents();
@@ -138,13 +137,19 @@ public class Registration extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        boolean userCreated = false;
         try {
-            authService.saveUser(jPanel1);
+            userCreated = authService.saveUser(jPanel1);
         } catch (IllegalArgumentException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if (!userCreated) return;
+        
+        this.setVisible(false);
+        new Authorization().setVisible(true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
