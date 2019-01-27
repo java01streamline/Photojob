@@ -2,7 +2,7 @@
 package photojob;
 
 import frames.Authorization;
-
+import frames.Main;
 
 public class Photojob {
 
