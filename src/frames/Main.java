@@ -37,13 +37,13 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
-        jSlider2 = new javax.swing.JSlider();
+        LoadInImage = new javax.swing.JButton();
+        SliderVividness = new javax.swing.JSlider();
+        sliderContrast = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        MirrorH = new javax.swing.JButton();
+        MirrorW = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         photoField = new javax.swing.JLabel();
 
@@ -52,24 +52,24 @@ public class Main extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(193, 218, 223));
         jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
 
-        jButton1.setText("Load");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        LoadInImage.setText("Load");
+        LoadInImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                LoadInImageActionPerformed(evt);
             }
         });
 
-        jSlider1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+        SliderVividness.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        SliderVividness.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlider1StateChanged(evt);
+                SliderVividnessStateChanged(evt);
             }
         });
 
-        jSlider2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jSlider2.addChangeListener(new javax.swing.event.ChangeListener() {
+        sliderContrast.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sliderContrast.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlider2StateChanged(evt);
+                sliderContrastStateChanged(evt);
             }
         });
 
@@ -77,17 +77,17 @@ public class Main extends javax.swing.JFrame {
 
         jLabel2.setText("Contrast");
 
-        jButton2.setText("Mirror height");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        MirrorH.setText("Mirror height");
+        MirrorH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                MirrorHActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Mirror widht ");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        MirrorW.setText("Mirror widht ");
+        MirrorW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                MirrorWActionPerformed(evt);
             }
         });
 
@@ -98,21 +98,21 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(LoadInImage)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(SliderVividness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(sliderContrast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton2))))
+                            .addComponent(MirrorW)
+                            .addComponent(MirrorH, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,16 +120,16 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(SliderVividness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MirrorH, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(sliderContrast, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MirrorW, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(LoadInImage)
                 .addContainerGap())
         );
 
@@ -171,7 +171,7 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void LoadInImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadInImageActionPerformed
         JFileChooser chooser = new JFileChooser();
         int res = chooser.showOpenDialog(jPanel1);
         if (res != JFileChooser.APPROVE_OPTION) {
@@ -188,9 +188,9 @@ public class Main extends javax.swing.JFrame {
         }
        
         display();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_LoadInImageActionPerformed
 
-    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+    private void SliderVividnessStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderVividnessStateChanged
         if (im == null) {
             return;
         }
@@ -208,16 +208,16 @@ public class Main extends javax.swing.JFrame {
             }
         }
         display();
-    }//GEN-LAST:event_jSlider1StateChanged
+    }//GEN-LAST:event_SliderVividnessStateChanged
 
-    private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
+    private void sliderContrastStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderContrastStateChanged
         if (im == null) {
             return;
         }
         if (photoField.getIcon() == null) {
             return;
         }
-        int s= jSlider1.getWidth();
+        int s= SliderVividness.getWidth();
         for (int i = 0; i < im.getWidth(); i++) {
             for (int j = 0; j < im.getHeight(); j++) {
                 Color current = new Color(im.getRGB(i, j));
@@ -237,9 +237,9 @@ public class Main extends javax.swing.JFrame {
         
        
         display();
-    }//GEN-LAST:event_jSlider2StateChanged
+    }//GEN-LAST:event_sliderContrastStateChanged
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void MirrorHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MirrorHActionPerformed
         if (im == null) {
             return;
         }
@@ -265,9 +265,9 @@ public class Main extends javax.swing.JFrame {
         
        
         display();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_MirrorHActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void MirrorWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MirrorWActionPerformed
         if (im == null) {
             return;
         }
@@ -293,7 +293,7 @@ public class Main extends javax.swing.JFrame {
         
        
         display();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_MirrorWActionPerformed
 
     private void display() {
         ImageIcon icon = new ImageIcon(im.getScaledInstance(photoField.getWidth(),
@@ -302,15 +302,15 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton LoadInImage;
+    private javax.swing.JButton MirrorH;
+    private javax.swing.JButton MirrorW;
+    private javax.swing.JSlider SliderVividness;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
     private javax.swing.JLabel photoField;
+    private javax.swing.JSlider sliderContrast;
     // End of variables declaration//GEN-END:variables
 }
