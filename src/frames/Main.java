@@ -52,6 +52,7 @@ public class Main extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         ctrlZ = new javax.swing.JButton();
         SavaImage = new javax.swing.JButton();
+        Profile = new javax.swing.JButton();
         photoField = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -151,6 +152,13 @@ public class Main extends javax.swing.JFrame {
         SavaImage.setText("Save");
         SavaImage.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
 
+        Profile.setText("Profile");
+        Profile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProfileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -161,6 +169,8 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(LoadInImage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(34, 34, 34)
+                            .addComponent(Profile)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ctrlZ, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -224,7 +234,9 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(SavaImage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LoadInImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LoadInImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Profile))
                     .addComponent(ctrlZ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -281,6 +293,12 @@ public class Main extends javax.swing.JFrame {
         display();
     }//GEN-LAST:event_MirrorWActionPerformed
 
+    private void ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Profile().setVisible(true);
+    }//GEN-LAST:event_ProfileActionPerformed
+
     private void display() {
         if (im == null) {
             ImageIcon icon = new ImageIcon(im.getScaledInstance(photoField.getWidth(),
@@ -292,6 +310,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton LoadInImage;
     private javax.swing.JButton MirrorH;
     private javax.swing.JButton MirrorW;
+    private javax.swing.JButton Profile;
     private javax.swing.JButton SavaImage;
     private javax.swing.JSlider SliderToBlue;
     private javax.swing.JSlider SliderToGreen;
