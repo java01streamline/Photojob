@@ -90,7 +90,11 @@ public class AuthService {
     private boolean isUserExists(User u){
         
         File db = new File("users.txt");
-        
+        if(!db.exists()) try {
+            db.createNewFile();
+        } catch (IOException ex) {
+            Logger.getLogger(AuthService.class.getName()).log(Level.SEVERE, null, ex);
+        }
         BufferedReader br = null;
         
         try {
