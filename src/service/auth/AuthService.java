@@ -178,7 +178,6 @@ public class AuthService {
         ret.setLogin(data[3]);  //login
         ret.setEmail(data[4]);  //email
         ret.setPassword(data[5]);   //password
-        System.out.println(ret.toString());
         return ret;
     }
 }
