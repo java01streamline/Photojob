@@ -255,135 +255,39 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoadInImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadInImageActionPerformed
-        JFileChooser chooser = new JFileChooser();
-        int res = chooser.showOpenDialog(jPanel1);
-        if (res != JFileChooser.APPROVE_OPTION) {
-            return;
-        }
-        File f = chooser.getSelectedFile();
-        if (!f.getName().endsWith(".jpg")) {
-            return;
-        }
-        try {
-            im = ImageIO.read(f);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
+        im = service.load(jPanel1, im);
+
         display();
     }//GEN-LAST:event_LoadInImageActionPerformed
 
     private void SliderVividnessStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderVividnessStateChanged
-        if (im == null) {
-            return;
-        }
-        if (photoField.getIcon() == null) {
-            return;
-        }
-        
-        for (int i = 0; i < im.getWidth(); i++) {
-            for (int j = 0; j < im.getHeight(); j++) {
-                Color current = new Color(im.getRGB(i, j));
-                Color newColor = new Color(service.RGBUp(current.getRed()),
-                        service.RGBUp(current.getGreen()),
-                        service.RGBUp(current.getBlue()));
-                im.setRGB(i, j, newColor.getRGB());
-            }
-        }
+        im = service.slider1(photoField, im);
         display();
     }//GEN-LAST:event_SliderVividnessStateChanged
 
     private void sliderContrastStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderContrastStateChanged
-        if (im == null) {
-            return;
-        }
-        if (photoField.getIcon() == null) {
-            return;
-        }
-        int s= SliderVividness.getWidth();
-        for (int i = 0; i < im.getWidth(); i++) {
-            for (int j = 0; j < im.getHeight(); j++) {
-                Color current = new Color(im.getRGB(i, j));
-                if ( current.getGreen() <= 125 || current.getRed() >= 125) {
-                    Color newColor = new Color(service.RGBDown(current.getRed()),
-                            service.RGBDown(current.getGreen()),
-                            service.RGBDown(current.getBlue()));
-                    im.setRGB(i, j, newColor.getRGB());
-                } else {
-                    Color newColor = new Color(service.RGBUp(current.getRed()),
-                            service.RGBUp(current.getGreen()),
-                            service.RGBUp(current.getBlue()));
-                    im.setRGB(i, j, newColor.getRGB());
-                }
-            }
-        }
-        
-       
+
+        im = service.slider2(im);
         display();
     }//GEN-LAST:event_sliderContrastStateChanged
 
     private void MirrorHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MirrorHActionPerformed
-        if (im == null) {
-            return;
-        }
-        if (photoField.getIcon() == null) {
-            return;
-        }
-      
-        for (int i = 0; i < im.getWidth(); i++) {
-            for (int j = 0; j < im.getHeight()/2; j++) {
-                Color current = new Color(im.getRGB(i, j));
-                
-                Color current1 = new Color(im.getRGB(i, im.getHeight()-1- j));
-                int red1=current1.getRed();
-                int blue1=current1.getBlue();
-                int green1=current1.getGreen();    
-                Color newColor1 = new Color(current.getRed(),current.getGreen(),current.getBlue());
-                    im.setRGB(i, im.getHeight()-1- j, newColor1.getRGB());
-                Color newColor = new Color(red1,green1, blue1);
-                    im.setRGB(i,j, newColor.getRGB());    
-            
-            }
-        }
-        
-       
+        im=service.mirHig(im);
         display();
     }//GEN-LAST:event_MirrorHActionPerformed
 
     private void MirrorWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MirrorWActionPerformed
-        if (im == null) {
-            return;
-        }
-        if (photoField.getIcon() == null) {
-            return;
-        }
-      
-        for (int i = 0; i < im.getWidth()/2; i++) {
-            for (int j = 0; j < im.getHeight(); j++) {
-                Color current = new Color(im.getRGB(i, j));
-                
-                Color current1 = new Color(im.getRGB(im.getWidth()-1- i, j));
-                int red1=current1.getRed();
-                int blue1=current1.getBlue();
-                int green1=current1.getGreen();    
-                Color newColor1 = new Color(current.getRed(),current.getGreen(),current.getBlue());
-                    im.setRGB( im.getWidth()-1-i, j, newColor1.getRGB());
-                Color newColor = new Color(red1,green1, blue1);
-                    im.setRGB(i,j, newColor.getRGB());    
-            
-            }
-        }
-        
-       
+        im=service.mirWih(im);
         display();
     }//GEN-LAST:event_MirrorWActionPerformed
 
     private void display() {
-        ImageIcon icon = new ImageIcon(im.getScaledInstance(photoField.getWidth(),
-                photoField.getHeight(), Image.SCALE_SMOOTH));
-        photoField.setIcon(icon);
+        if (im == null) {
+            ImageIcon icon = new ImageIcon(im.getScaledInstance(photoField.getWidth(),
+                    photoField.getHeight(), Image.SCALE_SMOOTH));
+            photoField.setIcon(icon);
+        }
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LoadInImage;
     private javax.swing.JButton MirrorH;
