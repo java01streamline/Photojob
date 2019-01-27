@@ -151,7 +151,7 @@ public class Registration extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         boolean userCreated = false;
         try {
-            userCreated = authService.saveUser(jPanel1);
+            userCreated = authService.signUp(jPanel1);
         } catch (IllegalArgumentException ex) {
             Logger.getLogger(Registration.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
