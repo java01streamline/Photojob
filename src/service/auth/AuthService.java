@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 
 public class AuthService {
 
-    public boolean saveUser(JPanel regPanel) throws IllegalArgumentException, IllegalAccessException {
+    public boolean signUp(JPanel regPanel) throws IllegalArgumentException, IllegalAccessException {
         Component[] components = regPanel.getComponents();
         User u = new User();
         Field[] fields = u.getClass().getDeclaredFields();
@@ -42,7 +42,6 @@ public class AuthService {
         
         u.setId(UUID.randomUUID().toString());
 
-        //System.out.println(u.toString());
         File db = new File("users.txt");
         if (!db.exists()) {
             try {
@@ -150,12 +149,34 @@ public class AuthService {
         String line;
         try {
             while((line = br.readLine()) != null){
-                if(line.contains(u.getPassword()) && line.contains(u.getLogin())) return true;
+                if(line.contains(u.getPassword()) && (isUserLoginExists(line, u.getLogin()))) return true;
             }   
         } catch (IOException ex) {
             Logger.getLogger(AuthService.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return false;
+    }
+    
+    private boolean isUserLoginExists(String dataAll, String loginOfNewUser){
+        User u = toUser(dataAll);
+        return u.getLogin().equals(loginOfNewUser);
+    }
+    private boolean isUserEmailExists(String dataAll, String emailOfNewUser){
+        User u = toUser(dataAll);
+        return u.getEmail().equals(emailOfNewUser);
+    }
+    
+    private User toUser(String dataAll){
+        User ret = new User();
+        String []data = dataAll.split("\t");
+        ret.setId(data[0]);
+        ret.setName(data[1]);
+        ret.setSurname(data[2]);
+        ret.setEmail(data[3]);
+        ret.setLogin(data[4]);
+        ret.setPassword(data[5]);
+        System.out.println(ret.toString());
+        return ret;
     }
 }
