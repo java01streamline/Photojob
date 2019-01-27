@@ -118,7 +118,7 @@ public class Authorization extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            if(!authService.signin(jPanel1)) return;
+            if(!authService.signIn(jPanel1)) return;
         } catch (IllegalArgumentException ex) {
             Logger.getLogger(Authorization.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {

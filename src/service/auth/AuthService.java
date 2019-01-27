@@ -15,8 +15,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import service.database.DatabaseService;
 
 public class AuthService {
+    
+    private DatabaseService databaseService = new DatabaseService();
 
     public boolean signUp(JPanel regPanel) throws IllegalArgumentException, IllegalAccessException {
         Component[] components = regPanel.getComponents();
@@ -119,7 +122,7 @@ public class AuthService {
         return false;
     }
     
-    public boolean signin(JPanel logPanel) throws IllegalArgumentException, IllegalAccessException{
+    public boolean signIn(JPanel logPanel) throws IllegalArgumentException, IllegalAccessException{
         Component[] components = logPanel.getComponents();
         User u = new User();
         Field[] fields = u.getClass().getDeclaredFields();
@@ -127,7 +130,6 @@ public class AuthService {
             if (!components[i].getClass().equals(JTextField.class)) {
                 continue;
             }
-
             for (int j = 0; j < fields.length; j++) {
                 if (!components[i].getName().equals(fields[j].getName())) {
                     continue;
@@ -149,7 +151,7 @@ public class AuthService {
         String line;
         try {
             while((line = br.readLine()) != null){
-                if(line.contains(u.getPassword()) && (isUserLoginExists(line, u.getLogin()))) return true;
+                if(line.contains(u.getPassword()) && toUser(line).getLogin().equals(u.getLogin())) return true;
             }   
         } catch (IOException ex) {
             Logger.getLogger(AuthService.class.getName()).log(Level.SEVERE, null, ex);
@@ -170,12 +172,12 @@ public class AuthService {
     private User toUser(String dataAll){
         User ret = new User();
         String []data = dataAll.split("\t");
-        ret.setId(data[0]);
-        ret.setName(data[1]);
-        ret.setSurname(data[2]);
-        ret.setEmail(data[3]);
-        ret.setLogin(data[4]);
-        ret.setPassword(data[5]);
+        ret.setId(data[0]); //id
+        ret.setName(data[1]);   //name
+        ret.setSurname(data[2]);    //surname
+        ret.setLogin(data[3]);  //login
+        ret.setEmail(data[4]);  //email
+        ret.setPassword(data[5]);   //password
         System.out.println(ret.toString());
         return ret;
     }
