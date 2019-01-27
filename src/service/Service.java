@@ -42,24 +42,7 @@ public class Service {
        return ret;
     }
     
-    public BufferedImage slider1(JPanel photoField,BufferedImage im){
-    if (im == null) {
-            return null;
-        }
-        
-        
-        for (int i = 0; i < im.getWidth(); i++) {
-            for (int j = 0; j < im.getHeight(); j++) {
-                Color current = new Color(im.getRGB(i, j));
-                Color newColor = new Color(RGBUp(current.getRed()),
-                        RGBUp(current.getGreen()),
-                        RGBUp(current.getBlue()));
-                im.setRGB(i, j, newColor.getRGB());
-            }
-        }
     
-        return im;
-    }
 
     public BufferedImage slider2(BufferedImage im) {
          if (im == null) {
@@ -136,4 +119,22 @@ return im;
     
     return im;
 }
+
+    public BufferedImage slider1(BufferedImage im) {
+        if (im == null) {
+            return null;
+        }
+        
+        
+        for (int i = 0; i < im.getWidth(); i++) {
+            for (int j = 0; j < im.getHeight(); j++) {
+                Color current = new Color(im.getRGB(i, j));
+                Color newColor = new Color(RGBUp(current.getRed()),
+                        RGBUp(current.getGreen()),
+                        RGBUp(current.getBlue()));
+                im.setRGB(i, j, newColor.getRGB());
+            }
+        }
+    
+        return im;}
 }

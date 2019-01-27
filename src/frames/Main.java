@@ -261,7 +261,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_LoadInImageActionPerformed
 
     private void SliderVividnessStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderVividnessStateChanged
-        im = service.slider1(photoField, im);
+        im = service.slider1( im);
         display();
     }//GEN-LAST:event_SliderVividnessStateChanged
 
