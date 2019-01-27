@@ -302,11 +302,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_ProfileActionPerformed
 
     private void display() {
-        if (im == null) {
-            ImageIcon icon = new ImageIcon(im.getScaledInstance(photoField.getWidth(),
-                    photoField.getHeight(), Image.SCALE_SMOOTH));
-            photoField.setIcon(icon);
-        }
+        if (im == null) return;
+        ImageIcon icon = new ImageIcon(im.getScaledInstance(photoField.getWidth(),
+        photoField.getHeight(), Image.SCALE_SMOOTH));
+        photoField.setIcon(icon);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LoadInImage;
