@@ -72,6 +72,10 @@ public class Main extends javax.swing.JFrame {
         });
 
         SliderVividness.setBackground(new java.awt.Color(102, 102, 102));
+        SliderVividness.setMaximum(50);
+        SliderVividness.setMinimum(-50);
+        SliderVividness.setToolTipText("");
+        SliderVividness.setValue(0);
         SliderVividness.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         SliderVividness.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -80,6 +84,9 @@ public class Main extends javax.swing.JFrame {
         });
 
         sliderContrast.setBackground(new java.awt.Color(102, 102, 102));
+        sliderContrast.setMaximum(50);
+        sliderContrast.setMinimum(-50);
+        sliderContrast.setValue(0);
         sliderContrast.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         sliderContrast.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -110,10 +117,16 @@ public class Main extends javax.swing.JFrame {
         });
 
         SliderToBlue.setBackground(new java.awt.Color(0, 102, 204));
+        SliderToBlue.setMaximum(50);
+        SliderToBlue.setMinimum(-50);
+        SliderToBlue.setValue(0);
         SliderToBlue.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         SliderToRed.setBackground(new java.awt.Color(204, 0, 0));
         SliderToRed.setForeground(new java.awt.Color(0, 0, 0));
+        SliderToRed.setMaximum(50);
+        SliderToRed.setMinimum(-50);
+        SliderToRed.setValue(0);
         SliderToRed.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setText("BLUE");
@@ -121,6 +134,9 @@ public class Main extends javax.swing.JFrame {
         jLabel4.setText("RED");
 
         SliderToGreen.setBackground(new java.awt.Color(0, 153, 0));
+        SliderToGreen.setMaximum(50);
+        SliderToGreen.setMinimum(-50);
+        SliderToGreen.setValue(0);
         SliderToGreen.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel5.setText("GREEN");
