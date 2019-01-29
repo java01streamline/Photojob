@@ -5,16 +5,9 @@
  */
 package frames;
 
-import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import service.Service;
 
 /**
@@ -151,6 +144,11 @@ public class Main extends javax.swing.JFrame {
         SavaImage.setForeground(new java.awt.Color(255, 255, 255));
         SavaImage.setText("Save");
         SavaImage.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        SavaImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SavaImageActionPerformed(evt);
+            }
+        });
 
         Profile.setBackground(new java.awt.Color(255, 204, 204));
         Profile.setText("Profile");
@@ -300,6 +298,10 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(false);
         new Profile().setVisible(true);
     }//GEN-LAST:event_ProfileActionPerformed
+
+    private void SavaImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavaImageActionPerformed
+        service.save(jPanel1, im);
+    }//GEN-LAST:event_SavaImageActionPerformed
 
     private void display() {
         if (im == null) return;

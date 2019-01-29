@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Service {
     
@@ -42,14 +43,32 @@ public class Service {
        return ret;
     }
     
-    
+    public void save(JPanel panel, BufferedImage im){
+        JFileChooser chooser = new JFileChooser();
+        chooser.setApproveButtonText("Save");
+        int res = chooser.showOpenDialog(panel);
+        if (res != JFileChooser.APPROVE_OPTION) {
+            return;
+        }
+        File f = new File(chooser.getSelectedFile()+".jpg");
+        if(!f.exists()) try {
+            f.createNewFile();
+        } catch (IOException ex) {
+            Logger.getLogger(Service.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            ImageIO.write(im, "JPG", f);
+        } catch (IOException ex) {
+            Logger.getLogger(Service.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public BufferedImage slider2(BufferedImage im) {
          if (im == null) {
             return null;
         }
         
-        
+       
         for (int i = 0; i < im.getWidth(); i++) {
             for (int j = 0; j < im.getHeight(); j++) {
                 Color current = new Color(im.getRGB(i, j));
