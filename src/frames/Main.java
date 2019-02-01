@@ -115,6 +115,11 @@ public class Main extends javax.swing.JFrame {
         SliderToBlue.setMinimum(-50);
         SliderToBlue.setValue(0);
         SliderToBlue.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        SliderToBlue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SliderToBlueStateChanged(evt);
+            }
+        });
 
         SliderToRed.setBackground(new java.awt.Color(204, 0, 0));
         SliderToRed.setForeground(new java.awt.Color(0, 0, 0));
@@ -122,6 +127,11 @@ public class Main extends javax.swing.JFrame {
         SliderToRed.setMinimum(-50);
         SliderToRed.setValue(0);
         SliderToRed.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        SliderToRed.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SliderToRedStateChanged(evt);
+            }
+        });
 
         jLabel3.setText("BLUE");
 
@@ -132,6 +142,11 @@ public class Main extends javax.swing.JFrame {
         SliderToGreen.setMinimum(-50);
         SliderToGreen.setValue(0);
         SliderToGreen.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        SliderToGreen.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SliderToGreenStateChanged(evt);
+            }
+        });
 
         jLabel5.setText("GREEN");
 
@@ -302,6 +317,21 @@ public class Main extends javax.swing.JFrame {
     private void SavaImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavaImageActionPerformed
         service.save(jPanel1, im);
     }//GEN-LAST:event_SavaImageActionPerformed
+
+    private void SliderToBlueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderToBlueStateChanged
+        im = service.ToBlue(im);
+        display();
+    }//GEN-LAST:event_SliderToBlueStateChanged
+
+    private void SliderToRedStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderToRedStateChanged
+         im = service.ToRed(im);
+        display();
+    }//GEN-LAST:event_SliderToRedStateChanged
+
+    private void SliderToGreenStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderToGreenStateChanged
+         im = service.ToGreen(im);
+        display();
+    }//GEN-LAST:event_SliderToGreenStateChanged
 
     private void display() {
         if (im == null) return;
