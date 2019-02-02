@@ -156,4 +156,58 @@ return im;
         }
     
         return im;}
+    
+    public BufferedImage ToRed(BufferedImage im) {
+        if (im == null) {
+            return null;
+        }
+        
+        
+        for (int i = 0; i < im.getWidth(); i++) {
+            for (int j = 0; j < im.getHeight(); j++) {
+                Color current = new Color(im.getRGB(i, j));
+                Color newColor = new Color(RGBUp(current.getRed()),
+                        RGBDown(current.getGreen()),
+                        RGBDown(current.getBlue()));
+                im.setRGB(i, j, newColor.getRGB());
+            }
+        }
+    
+        return im;}
+    
+    public BufferedImage ToGreen(BufferedImage im) {
+        if (im == null) {
+            return null;
+        }
+        
+        
+        for (int i = 0; i < im.getWidth(); i++) {
+            for (int j = 0; j < im.getHeight(); j++) {
+                Color current = new Color(im.getRGB(i, j));
+                Color newColor = new Color(RGBDown(current.getRed()),
+                        RGBUp(current.getGreen()),
+                        RGBDown(current.getBlue()));
+                im.setRGB(i, j, newColor.getRGB());
+            }
+        }
+    
+        return im;}
+    
+    public BufferedImage ToBlue(BufferedImage im) {
+        if (im == null) {
+            return null;
+        }
+        
+        
+        for (int i = 0; i < im.getWidth(); i++) {
+            for (int j = 0; j < im.getHeight(); j++) {
+                Color current = new Color(im.getRGB(i, j));
+                Color newColor = new Color(RGBDown(current.getRed()),
+                        RGBDown(current.getGreen()),
+                        RGBUp(current.getBlue()));
+                im.setRGB(i, j, newColor.getRGB());
+            }
+        }
+    
+        return im;}
 }
