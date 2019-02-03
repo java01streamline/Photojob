@@ -1,15 +1,20 @@
 
 package frames;
 
+import service.auth.AuthService;
+
 
 
 
 
 public class Profile extends javax.swing.JFrame {
-
+private AuthService authService = new AuthService();
     public Profile() {
         initComponents();
-        
+        name.setText(authService.currentUser.getName());
+        surname.setText(authService.currentUser.getSurname());
+        email.setText(authService.currentUser.getEmail());
+        login.setText(authService.currentUser.getLogin());
     }
 
    
@@ -22,13 +27,13 @@ public class Profile extends javax.swing.JFrame {
         Change = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        surname = new javax.swing.JLabel();
+        login = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(249, 179, 179));
@@ -71,7 +76,7 @@ public class Profile extends javax.swing.JFrame {
 
         jLabel1.setText("Name");
 
-        jLabel5.setText("jLabel5");
+        name.setText("jLabel5");
 
         jLabel2.setText("Surname");
 
@@ -79,11 +84,11 @@ public class Profile extends javax.swing.JFrame {
 
         jLabel4.setText("Email");
 
-        jLabel6.setText("jLabel6");
+        surname.setText("jLabel6");
 
-        jLabel7.setText("jLabel7");
+        login.setText("jLabel7");
 
-        jLabel8.setText("jLabel8");
+        email.setText("jLabel8");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,10 +108,10 @@ public class Profile extends javax.swing.JFrame {
                                     .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))))
+                                    .addComponent(email)
+                                    .addComponent(login)
+                                    .addComponent(name)
+                                    .addComponent(surname))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Delete)
@@ -120,19 +125,19 @@ public class Profile extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel5))
+                    .addComponent(name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(surname))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel7))
+                    .addComponent(login))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel8))
+                    .addComponent(email))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(Change)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -178,20 +183,19 @@ public class Profile extends javax.swing.JFrame {
         new Main().setVisible(true);
     }//GEN-LAST:event_BackActionPerformed
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
     private javax.swing.JButton Change;
     private javax.swing.JButton Delete;
+    private javax.swing.JLabel email;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel login;
+    private javax.swing.JLabel name;
+    private javax.swing.JLabel surname;
     // End of variables declaration//GEN-END:variables
 }
