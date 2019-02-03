@@ -172,11 +172,11 @@ public class AuthService {
     private User toUser(String dataAll){
         User ret = new User();
         String []data = dataAll.split("\t");
-        ret.setId(data[0]); //id
-        ret.setName(data[1]);   //name
+        ret.setId(data[0]);         //id
+        ret.setName(data[1]);       //name
         ret.setSurname(data[2]);    //surname
-        ret.setLogin(data[3]);  //login
-        ret.setEmail(data[4]);  //email
+        ret.setLogin(data[3]);      //login
+        ret.setEmail(data[4]);      //email
         ret.setPassword(data[5]);   //password
         return ret;
     }
