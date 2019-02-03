@@ -14,7 +14,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email + ", login=" + login + ", password=" + password + '}';
+        return "User{ "+"id="+id+", name="+name+",surname="+surname+", email="+email+", login="+login+", password="+password+" }";
     }
 
     public User(String id, String name, String surname, String email, String login, String password) {
@@ -33,7 +33,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     public String getId() {
         return id;

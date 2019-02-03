@@ -169,7 +169,7 @@ public class AuthService {
         return u.getEmail().equals(emailOfNewUser);
     }
     
-    private User toUser(String dataAll){
+    public User toUser(String dataAll){
         User ret = new User();
         String []data = dataAll.split("\t");
         ret.setId(data[0]);         //id
