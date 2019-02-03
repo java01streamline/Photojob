@@ -20,6 +20,17 @@ import service.database.DatabaseService;
 public class AuthService {
     public static User currentUser;
     
+    private static AuthService authService;
+    
+    private AuthService(){}
+    
+    public static AuthService get(){
+        if(authService == null){
+            authService = new AuthService();
+        }
+        return authService;
+    }
+    
     private DatabaseService databaseService = new DatabaseService();
 
     public boolean signUp(JPanel regPanel) throws IllegalArgumentException, IllegalAccessException {

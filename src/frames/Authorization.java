@@ -10,7 +10,7 @@ public class Authorization extends javax.swing.JFrame {
     private AuthService authService;
     
     public Authorization() {
-        authService = new AuthService();
+        authService = AuthService.get();
         initComponents();
     }
 

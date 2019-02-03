@@ -5,7 +5,6 @@
  */
 package frames;
 
-import javax.swing.JTextField;
 import service.auth.AuthService;
 
 /**
@@ -13,10 +12,8 @@ import service.auth.AuthService;
  * @author 1
  */
 public class DeleteProfile extends javax.swing.JFrame {
-    private AuthService authService = new AuthService();
-    /**
-     * Creates new form DeleteProfile
-     */
+    private AuthService authService = AuthService.get();
+    
     public DeleteProfile() {
         initComponents();
         

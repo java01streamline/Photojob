@@ -9,7 +9,7 @@ public class Registration extends javax.swing.JFrame {
     private AuthService authService;
 
     public Registration() {
-        authService = new AuthService();
+        authService = AuthService.get();
         initComponents();
     }
 

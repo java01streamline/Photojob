@@ -8,7 +8,7 @@ import service.auth.AuthService;
 
 
 public class Profile extends javax.swing.JFrame {
-private AuthService authService = new AuthService();
+private AuthService authService = AuthService.get();
     public Profile() {
         initComponents();
         name.setText(authService.currentUser.getName());
