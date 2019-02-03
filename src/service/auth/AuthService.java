@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import service.database.DatabaseService;
 
 public class AuthService {
+    public static User currentUser;
     
     private DatabaseService databaseService = new DatabaseService();
 
@@ -151,7 +152,12 @@ public class AuthService {
         String line;
         try {
             while((line = br.readLine()) != null){
-                if(line.contains(u.getPassword()) && toUser(line).getLogin().equals(u.getLogin())) return true;
+                if(line.contains(u.getPassword()) && toUser(line).getLogin().equals(u.getLogin())) {
+                    currentUser = toUser(line);
+                    System.out.println(currentUser.getLogin());
+                    System.out.println(currentUser.getPassword());
+                    return true;
+                }
             }   
         } catch (IOException ex) {
             Logger.getLogger(AuthService.class.getName()).log(Level.SEVERE, null, ex);
@@ -180,4 +186,5 @@ public class AuthService {
         ret.setPassword(data[5]);   //password
         return ret;
     }
+    
 }
