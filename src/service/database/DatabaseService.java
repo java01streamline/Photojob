@@ -2,6 +2,7 @@ package service.database;
 
 import entities.user.User;
 import java.io.BufferedReader;
+<<<<<<< HEAD
 import java.io.BufferedWriter;
 
 import java.io.File;
@@ -10,11 +11,20 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+=======
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+>>>>>>> origin/master
 import service.auth.AuthService;
 
 public class DatabaseService {
 
     private String db = "users.txt";
+<<<<<<< HEAD
    public User toUser(String dataAll){
         User ret = new User();
         String []data = dataAll.split("\t");
@@ -46,8 +56,26 @@ public class DatabaseService {
     }
 
     public User findUserByEmail(String email) {
+=======
+   //private AuthService authService = new AuthService();
+   public User toUser(String dataAll){
+        User ret = new User();
+        String []data = dataAll.split("\t");
+        ret.setId(data[0]); //id
+        ret.setName(data[1]);   //name
+        ret.setSurname(data[2]);    //surname
+        ret.setLogin(data[3]);  //login
+        ret.setEmail(data[4]);  //email
+        ret.setPassword(data[5]);   //password
+        return ret;
+    }
+   
+ 
+    public User findUserById(String id){
+>>>>>>> origin/master
         throw new UnsupportedOperationException();
     }
+<<<<<<< HEAD
 
     public void updateUserProfile(User user) throws FileNotFoundException, IOException {
         User au=findUserById(user.getId());
@@ -57,6 +85,27 @@ public class DatabaseService {
 
     public boolean isUserExists(User user) {
         throw new UnsupportedOperationException();
+=======
+    
+    public User findUserByEmail(String email){
+       
+        File f = new File(db);
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader(f));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DatabaseService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String line;
+        try {
+            while((line = br.readLine()) != null){
+                if(toUser(line).getEmail().equals(email)) return toUser(line);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(DatabaseService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+>>>>>>> origin/master
     }
 
     public User[] allUsers() {
