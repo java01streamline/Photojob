@@ -13,9 +13,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DatabaseService {
-
+    
     private String db = "users.txt";
-
+    
     public User toUser(String dataAll) {
         User ret = new User();
         String[] data = dataAll.split("\t");
@@ -27,8 +27,8 @@ public class DatabaseService {
         ret.setPassword(data[5]);   //password
         return ret;
     }
-
-    public User findUserById(String id){
+    
+    public User findUserById(String id) {
         File f = new File(db);
         if (!f.exists()) {
             return null;
@@ -54,23 +54,38 @@ public class DatabaseService {
         }
         return null;
     }
-
-    public void updateUserProfile(User user) {
+    
+    public void updateUserProfile(User user) throws FileNotFoundException, IOException {
         User au = findUserById(user.getId());
-
-        saveUser(user);
+        File f = new File(db);
+        File f2 = new File("user2.txt");
+        BufferedReader r = new BufferedReader(new FileReader(f));
+        BufferedWriter w = new BufferedWriter(new FileWriter(f2));
+        String str;
+        while ((str = r.readLine()) != null) {
+            User u = toUser(str);
+            if (u.getId() != user.getId()) {
+                w.write(str);
+            } else {
+                saveUser(user);
+            }
+        }
+        f.delete();
+        r.close();
+        w.close();
+        f2.renameTo(f);
     }
-
+    
     public boolean isUserExists(User user) {
         ArrayList<User> users = getAllUsers();
-        for(int i = 0; i < users.size(); i++){
-            if(users.get(i).getEmail().equals(user.getEmail()) || users.get(i).getLogin().equals(user.getLogin())){
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equals(user.getEmail()) || users.get(i).getLogin().equals(user.getLogin())) {
                 return true;
             }
         }
         return false;
     }
-
+    
     public User findUserByEmail(String email) {
         File f = new File(db);
         BufferedReader br = null;
@@ -91,7 +106,7 @@ public class DatabaseService {
         }
         return null;
     }
-
+    
     public ArrayList<User> getAllUsers() {
         ArrayList<User> ret = new ArrayList<>();
         File f = new File(db);
@@ -112,7 +127,7 @@ public class DatabaseService {
         }
         return ret;
     }
-
+    
     public void saveUser(User user) {
         File f = new File(db);
         if (!f.exists()) {
@@ -143,6 +158,6 @@ public class DatabaseService {
         } catch (IOException ex) {
             Logger.getLogger(DatabaseService.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
 }
