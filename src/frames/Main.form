@@ -120,7 +120,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Component id="SavaImage" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="SaveImage" min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -157,7 +157,7 @@
                       <Component id="jLabel5" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="259" max="32767" attributes="0"/>
-                  <Component id="SavaImage" min="-2" max="-2" attributes="0"/>
+                  <Component id="SaveImage" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -386,7 +386,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="SavaImage">
+        <Component class="javax.swing.JButton" name="SaveImage">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="33" red="0" type="rgb"/>
@@ -409,7 +409,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SavaImageActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveImageActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Profile">

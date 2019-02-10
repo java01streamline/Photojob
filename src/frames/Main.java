@@ -18,6 +18,7 @@ public class Main extends javax.swing.JFrame {
 
     private BufferedImage im;
     private Service service;
+    public static BufferedImage Auto_Save_image;
 
     public Main() {
         this.service = new Service();
@@ -44,7 +45,7 @@ public class Main extends javax.swing.JFrame {
         SliderToGreen = new javax.swing.JSlider();
         jLabel5 = new javax.swing.JLabel();
         ctrlZ = new javax.swing.JButton();
-        SavaImage = new javax.swing.JButton();
+        SaveImage = new javax.swing.JButton();
         Profile = new javax.swing.JButton();
         photoField = new javax.swing.JLabel();
 
@@ -155,13 +156,13 @@ public class Main extends javax.swing.JFrame {
         ctrlZ.setText("Ctrl + Z");
         ctrlZ.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
 
-        SavaImage.setBackground(new java.awt.Color(0, 51, 255));
-        SavaImage.setForeground(new java.awt.Color(255, 255, 255));
-        SavaImage.setText("Save");
-        SavaImage.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
-        SavaImage.addActionListener(new java.awt.event.ActionListener() {
+        SaveImage.setBackground(new java.awt.Color(0, 51, 255));
+        SaveImage.setForeground(new java.awt.Color(255, 255, 255));
+        SaveImage.setText("Save");
+        SaveImage.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED)));
+        SaveImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SavaImageActionPerformed(evt);
+                SaveImageActionPerformed(evt);
             }
         });
 
@@ -217,7 +218,7 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(MirrorW, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                                 .addComponent(MirrorH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addComponent(SavaImage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SaveImage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -246,7 +247,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(SliderToGreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
-                .addComponent(SavaImage)
+                .addComponent(SaveImage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -283,7 +284,6 @@ public class Main extends javax.swing.JFrame {
 
     private void LoadInImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadInImageActionPerformed
         im = service.load(jPanel1, im);
-
         display();
     }//GEN-LAST:event_LoadInImageActionPerformed
 
@@ -293,7 +293,6 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_SliderVividnessStateChanged
 
     private void sliderContrastStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderContrastStateChanged
-
         im = service.slider2(im);
         display();
     }//GEN-LAST:event_sliderContrastStateChanged
@@ -314,9 +313,9 @@ public class Main extends javax.swing.JFrame {
         new Profile().setVisible(true);
     }//GEN-LAST:event_ProfileActionPerformed
 
-    private void SavaImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavaImageActionPerformed
+    private void SaveImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveImageActionPerformed
         service.save(jPanel1, im);
-    }//GEN-LAST:event_SavaImageActionPerformed
+    }//GEN-LAST:event_SaveImageActionPerformed
 
     private void SliderToBlueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderToBlueStateChanged
         im = service.ToBlue(im);
@@ -334,6 +333,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_SliderToGreenStateChanged
 
     private void display() {
+        Auto_Save_image = im;
+        
         if (im == null) return;
         ImageIcon icon = new ImageIcon(im.getScaledInstance(photoField.getWidth(),
         photoField.getHeight(), Image.SCALE_SMOOTH));
@@ -344,7 +345,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton MirrorH;
     private javax.swing.JButton MirrorW;
     private javax.swing.JButton Profile;
-    private javax.swing.JButton SavaImage;
+    private javax.swing.JButton SaveImage;
     private javax.swing.JSlider SliderToBlue;
     private javax.swing.JSlider SliderToGreen;
     private javax.swing.JSlider SliderToRed;
