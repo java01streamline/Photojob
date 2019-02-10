@@ -2,7 +2,6 @@ package photojob;
 
 import frames.Authorization;
 import java.io.IOException;
-import plugins.Plug;
 import static plugins.Plug.Timered_runer;
 
 public class Photojob {
