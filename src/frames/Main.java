@@ -6,6 +6,7 @@
 package frames;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import service.Service;
@@ -19,13 +20,13 @@ public class Main extends javax.swing.JFrame {
     private BufferedImage im;
     private Service service;
     public static BufferedImage Auto_Save_image;
-
+    
     public Main() {
         this.service = new Service();
         this.im = null;
         initComponents();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("PhotoJob.png")));
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -50,6 +51,7 @@ public class Main extends javax.swing.JFrame {
         photoField = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PhotoJob - image redactor");
         setMaximumSize(new java.awt.Dimension(1000, 500));
         setMinimumSize(new java.awt.Dimension(1000, 500));
 
@@ -246,7 +248,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(SliderToGreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SaveImage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -261,6 +263,7 @@ public class Main extends javax.swing.JFrame {
         photoField.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
         photoField.setMaximumSize(new java.awt.Dimension(500, 500));
         photoField.setMinimumSize(new java.awt.Dimension(500, 500));
+        photoField.setPreferredSize(new java.awt.Dimension(600, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -270,7 +273,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(photoField, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                .addComponent(photoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -340,6 +343,8 @@ public class Main extends javax.swing.JFrame {
         photoField.getHeight(), Image.SCALE_SMOOTH));
         photoField.setIcon(icon);
     }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LoadInImage;
     private javax.swing.JButton MirrorH;
